@@ -1,6 +1,4 @@
 require "env_detective/version"
+require "env_detective/extension"
 
-module EnvDetective
-  class Error < StandardError; end
-  # Your code goes here...
-end
+ENV = EnvDetective::Extension.new(ENV)
