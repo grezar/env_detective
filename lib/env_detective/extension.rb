@@ -16,7 +16,7 @@ module EnvDetective
     end
 
     def method_missing(method_name, *args, &block)
-      @logger.info "#{args} is used at #{caller.first}" if respond_to_missing?(method_name)
+      @logger.info "#{args.first} is referred from #{caller.first}" if respond_to_missing?(method_name)
       @env.__send__(method_name, *args, &block)
     end
   end

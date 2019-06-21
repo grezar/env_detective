@@ -5,7 +5,7 @@ This gem is for detecting environment variables referred from ruby.
 
 In the case which multiple applications share the same server and so many environment variables are exported in it, it may difficult to grasp which environment variable is referred from which application.
 
- `ENV.[]` and `ENV.fetch` will be caught and logged by this gem. It help you to grasp the above thing.
+ `ENV.[]` and `ENV.fetch` will be caught and logged by this gem. It helps you to grasp the above thing.
 
 **I wouldn't recommend using this gem in production.** You would achieve the purpose even in a staging or another environment.
 
