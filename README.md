@@ -1,9 +1,13 @@
 # EnvDetective
 [![Build Status](https://travis-ci.org/grezar/env_detective.svg?branch=master)](https://travis-ci.org/grezar/env_detective)
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/env_detective`. To experiment with that code, run `bin/console` for an interactive prompt.
+This gem is for detecting environment variables referred from ruby.
 
-TODO: Delete this and the text above, and describe your gem
+In the case which multiple applications share the same server and so many environment variables are exported in it, it may difficult to grasp which environment variable is referred from which application.
+
+ `ENV.[]` and `ENV.fetch` will be caught and logged by this gem. It help you to grasp the above thing.
+
+**I wouldn't recommend using this gem in production.** You would achieve the purpose even in a staging or another environment.
 
 ## Installation
 
@@ -23,17 +27,30 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+### Minimum
+This will override `ENV` and when `ENV` is referred, that will be logged to STDOUT.
 
-## Development
+```
+require 'env_detective'
 
-After checking out the repo, run `bin/setup` to install dependencies. Then, run `rake test` to run the tests. You can also run `bin/console` for an interactive prompt that will allow you to experiment.
+ENV = EnvDetective::Extension.new(ENV)
+```
 
-To install this gem onto your local machine, run `bundle exec rake install`. To release a new version, update the version number in `version.rb`, and then run `bundle exec rake release`, which will create a git tag for the version, push git commits and tags, and push the `.gem` file to [rubygems.org](https://rubygems.org).
+### Use another logger
+If you want to use another logger or change output file, you can set logger like below.
+
+```
+require 'env_detective'
+require 'logger'
+
+ext = EnvDetective::Extension.new(ENV)
+ext.logger = Logger.new(File.join(__dir__, 'log/env_detective.log')
+ENV = ext
+```
 
 ## Contributing
 
-Bug reports and pull requests are welcome on GitHub at https://github.com/[USERNAME]/env_detective.
+Bug reports and pull requests are welcome on GitHub at https://github.com/grezar/env_detective.
 
 ## License
 
