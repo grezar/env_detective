@@ -1,6 +1,8 @@
 require "env_detective/version"
 require "env_detective/extension"
 require "env_detective/config"
+require "env_detective/logger"
+require "env_detective/repository"
 
 module EnvDetective
   module ClassMethods

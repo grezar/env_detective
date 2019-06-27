@@ -1,5 +1,3 @@
-require "logger"
-
 module EnvDetective
   class Extension
     RETREIVE_METHODS = %i([] fetch).freeze
@@ -15,7 +13,7 @@ module EnvDetective
     end
 
     def method_missing(method_name, *args, &block)
-      @logger.info "#{args.first} is referred from #{caller.first}" if respond_to_missing?(method_name)
+      Logger.info(method_name, *args, caller.first) if respond_to_missing?(method_name)
       origin.__send__(method_name, *args, &block)
     end
   end
