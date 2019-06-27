@@ -4,8 +4,6 @@ module EnvDetective
   class Extension
     RETREIVE_METHODS = %i([] fetch).freeze
 
-    attr_writer :logger
-
     def initialize(env)
       @env = env
       @logger = EnvDetective.config.logger
