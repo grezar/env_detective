@@ -40,12 +40,14 @@ ENV = EnvDetective::Extension.new(ENV)
 If you want to use another logger or change output file, you can set logger like below.
 
 ```
-require 'env_detective'
-require 'logger'
+require "env_detective"
+require "logger"
 
-ext = EnvDetective::Extension.new(ENV)
-ext.logger = Logger.new(File.join(__dir__, 'log/env_detective.log'))
-ENV = ext
+EnvDetective.configure do |config|
+  config.logger = Logger.new(File.join(__dir__, 'log/env_detective.log'))
+end
+
+ENV = EnvDetective::Extension.new(ENV)
 ```
 
 ## Contributing
