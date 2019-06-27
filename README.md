@@ -33,7 +33,7 @@ This will override `ENV` and when `ENV` is referred, that will be logged to STDO
 ```ruby
 require 'env_detective'
 
-ENV = EnvDetective::Extension.new(ENV)
+ENV = EnvDetective.extend(ENV)
 ```
 
 ### Use another logger
@@ -47,7 +47,7 @@ EnvDetective.configure do |config|
   config.logger = Logger.new(File.join(__dir__, 'log/env_detective.log'))
 end
 
-ENV = EnvDetective::Extension.new(ENV)
+ENV = EnvDetective.extend(ENV)
 ```
 
 ## Contributing
