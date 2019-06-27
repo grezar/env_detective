@@ -2,7 +2,7 @@ module EnvDetective
   class Config
     CONFIGURABLE_KEYS = %i(
       logger
-    )
+    ).freeze
 
     attr_writer *CONFIGURABLE_KEYS
 

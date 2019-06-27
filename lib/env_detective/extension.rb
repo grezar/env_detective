@@ -2,7 +2,7 @@ require "logger"
 
 module EnvDetective
   class Extension
-    RETREIVE_METHODS = %i([] fetch)
+    RETREIVE_METHODS = %i([] fetch).freeze
 
     attr_writer :logger
 
