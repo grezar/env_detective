@@ -5,6 +5,9 @@ require "env_detective"
 require "minitest/autorun"
 
 file = File.open(File.join(__dir__, '../tmp/env_detective.log'), File::WRONLY | File::CREAT)
-ext = EnvDetective::Extension.new(ENV)
-ext.logger = Logger.new(file, 0)
-ENV = ext
+
+EnvDetective.configure do |config|
+  config.logger = Logger.new(file, 0)
+end
+
+ENV = EnvDetective::Extension.new(ENV)

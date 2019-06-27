@@ -8,7 +8,7 @@ module EnvDetective
 
     def initialize(env)
       @env = env
-      @logger = ::Logger.new(STDOUT)
+      @logger = EnvDetective.config.logger
     end
 
     def respond_to_missing?(method_name, include_private = false)
