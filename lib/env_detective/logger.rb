@@ -14,7 +14,7 @@ module EnvDetective
     end
 
     def info
-      return if Repository.stored?(key)
+      return if Repository.stored?(key) && !EnvDetective.config.allow_duplicate_logging
       Repository.store(key, name)
       logger.info "#{name} is referred from #{location}"
     end
