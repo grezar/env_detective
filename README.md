@@ -30,7 +30,7 @@ Or install it yourself as:
 ### Minimum
 This will override `ENV` and when `ENV` is referred, that will be logged to STDOUT.
 
-```
+```ruby
 require 'env_detective'
 
 ENV = EnvDetective::Extension.new(ENV)
@@ -39,7 +39,7 @@ ENV = EnvDetective::Extension.new(ENV)
 ### Use another logger
 If you want to use another logger or change output file, you can set logger like below.
 
-```
+```ruby
 require "env_detective"
 require "logger"
 
