@@ -44,7 +44,7 @@ require 'env_detective'
 require 'logger'
 
 ext = EnvDetective::Extension.new(ENV)
-ext.logger = Logger.new(File.join(__dir__, 'log/env_detective.log')
+ext.logger = Logger.new(File.join(__dir__, 'log/env_detective.log'))
 ENV = ext
 ```
 
