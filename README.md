@@ -57,6 +57,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/grezar
 ## License
 
 The gem is available as open source under the terms of the [MIT License](https://opensource.org/licenses/MIT).
-
-## TODO
-- [ ] Log together at once if referred multiple times inside a loop
