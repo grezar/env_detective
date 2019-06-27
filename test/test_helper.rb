@@ -10,4 +10,4 @@ EnvDetective.configure do |config|
   config.logger = Logger.new(file, 0)
 end
 
-ENV = EnvDetective::Extension.new(ENV)
+ENV = EnvDetective.extend(ENV)

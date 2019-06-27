@@ -8,6 +8,10 @@ module EnvDetective
       block.call(config)
     end
 
+    def extend(original)
+      Extension.new(original)
+    end
+
     def config
       @config ||= Config.new
     end
