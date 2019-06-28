@@ -1,3 +1,5 @@
+require "logger"
+
 module EnvDetective
   class Config
     CONFIGURABLE_KEYS = %i(
@@ -8,7 +10,7 @@ module EnvDetective
     attr_writer *CONFIGURABLE_KEYS
 
     def logger
-      @logger || Logger.new(STDOUT)
+      @logger || ::Logger.new(STDOUT)
     end
 
     def allow_duplicate_logging
