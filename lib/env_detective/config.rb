@@ -10,11 +10,11 @@ module EnvDetective
     attr_writer *CONFIGURABLE_KEYS
 
     def logger
-      @logger || ::Logger.new(STDOUT)
+      @logger ||= ::Logger.new(STDOUT)
     end
 
     def allow_duplicate_logging
-      @allow_duplicate_logging || false
+      @allow_duplicate_logging ||= false
     end
   end
 end
